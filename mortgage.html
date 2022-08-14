@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Eviatar Guttman - What we did in the mortgage research</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Eviatar Guttman</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./mortgage.html" aria-current="page">Mortgage research</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-merger-simulation" role="button" data-bs-toggle="dropdown" aria-expanded="false">Merger Simulation</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-merger-simulation">    
+        <li>
+    <a class="dropdown-item" href="./merger_sim_intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Multinomial_Logit.html">
+ <span class="dropdown-text">multinomial logit</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./nested.html">
+ <span class="dropdown-text">Nested Logit</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#load-packages-and-data" id="toc-load-packages-and-data" class="nav-link active" data-scroll-target="#load-packages-and-data">Load packages and data</a></li>
+  <li><a href="#regression-formula" id="toc-regression-formula" class="nav-link" data-scroll-target="#regression-formula">Regression formula</a></li>
+  <li><a href="#quantile-regressions" id="toc-quantile-regressions" class="nav-link" data-scroll-target="#quantile-regressions">Quantile regressions</a></li>
+  <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions">Predictions</a></li>
+  <li><a href="#simulation" id="toc-simulation" class="nav-link" data-scroll-target="#simulation">Simulation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">What we did in the mortgage research</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This is a short explanation of how we did the simulation in the <a href="https://www.gov.il/he/departments/publications/reports/mortgagemarket-final">mortgage research</a>. For more information one can read the final report or the <a href="https://www.gov.il/he/departments/publications/reports/mortgagemarket-draft">drat with the anexxes</a> .</p>
+<p>A while back, we collected mortgage data from the 3 largest banks over a time span of 3 years. It took me several month to build a data set that unifies all variables shared by the 3 banks. As we learned the data, we observed substantial price dispersion between customers, even though we practically had everything the bank documented about the loan.</p>
+<p>Linear models presented varying residual dispersion between non-bidders (consumers that don’t get another bid from another bank) and bidders. Also, our estimates of the effect of extra bid on the price consumer will pay seemed small. Our qualitative information about the market suggested that there are substantial search costs consumers endure. So, we wanted to exemplify what should be the change in price in a frictionless environment when the customer gets more bids before purchase of a mortgage loan.</p>
+<p>As in <a href="https://www.aeaweb.org/articles?id=10.1257/aer.102.7.3249">Woodward &amp; Hall (2012)</a> we use the quantile regression’s estimates to reconstruct the predicted price distribution for every observation in the sample. In other words, we get a price distribution that match the borrower and the transaction.</p>
+<p>We shall regress 3 different models for each of 3 different banks. Then, for each observation, we’ll predict 99 quantiles in each of the 3 banks. Hence we construct a predicted price distribution for this customer in each bank.</p>
+<p>Next in the simulation implementation, there are two options:</p>
+<ol type="1">
+<li><p>In each draw, the customer draws a triplet of values in [1:99], every value in the triplet corresponds to a specific bank. So, he might be in quantile 12 in bank A, quantlie 50 in bank B and another value in bank C. Specifically, In this method we simply assume that the unobserved part is random and the choice of quantile has nothing to do with the customer’s characteristics.</p></li>
+<li><p>The customer quantile is fixed between banks. Here, we can simply plot the values for the predictions without performing a simulation. The underlying assumption is that there are unobservable to the researcher but the bank and the customer both know the values of those unobservable.</p></li>
+</ol>
+<p>We shall go with option (1), It’s more interesting.</p>
+<p>Based on the 3 distributions we will assume that the customer gets bids from one, two or three banks. When she bids more than one bank, in each draw we choose the lower price of the bids.</p>
+<p>Finally, we present four price distributions in a plot. A distribution when the customer is a non-bidder, two more when the customer ask a big from a second bank, and one when the customer asks bids from all 3 banks.</p>
+<section id="load-packages-and-data" class="level1">
+<h1>Load packages and data</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,furrr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># data  bases</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">'mortgage_data/data_1_raw_database_v2.Rdata'</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="fu">ls</span>(), <span class="sc">~</span> <span class="fu">dim</span>(<span class="fu">get</span>(.)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 25779    50
+
+[[2]]
+[1] 26958    50
+
+[[3]]
+[1] 44944    50</code></pre>
+</div>
+</div>
+<p>We get data sets of mortgage loans from 3 different banks. These file have been unified so all features (explanatory variables) are in same scale and have a meaning in regression.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "df_bank_A" "df_bank_B" "df_bank_C"</code></pre>
+</div>
+</div>
+</section>
+<section id="regression-formula" class="level1">
+<h1>Regression formula</h1>
+<p>This a simplified regression equation. In our original data there are about 50 features, numeric and paregoric. For running quantile regression on the lowed and highest quantiles one need a rich data-set otherwise the model will not converge.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>reg_formula <span class="ot">&lt;-</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">formula</span>(<span class="st">"interest ~ LTV + Purpose + service_commission + asset_type + </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">  log_sum_loan_app + log_asset_value + log_disposable_income + </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="st">  demographics +</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="st">  load_porfilio_fixed_effects + </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="st">  amortization_periods,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="st">  time_fixed_effect"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="quantile-regressions" class="level1">
+<h1>Quantile regressions</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>taus <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">99</span><span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">head</span>(taus), <span class="st">"...."</span>, <span class="fu">tail</span>(taus))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "0.01" "0.02" "0.03" "0.04" "0.05" "0.06" "...." "0.94" "0.95" "0.96"
+[11] "0.97" "0.98" "0.99"</code></pre>
+</div>
+</div>
+<p>Here I use the package <code>furrr</code> that implements parallel computing to the <code>purrr</code> map functions with ‘future’ supported back-end.<br>
+here we use paralle computing on the local machine.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantreg)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>future<span class="sc">::</span><span class="fu">plan</span>(multiprocess) <span class="co"># parallel processing</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>models_A <span class="ot">&lt;-</span> <span class="fu">future_map</span>(taus, <span class="sc">~</span> quantreg<span class="sc">::</span><span class="fu">rq</span>(reg_formula, <span class="at">tau =</span> .x, <span class="at">data =</span> df_bank_A, <span class="at">method =</span> <span class="st">'pfn'</span> ), <span class="at">.progress =</span> T )</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>models_B <span class="ot">&lt;-</span> <span class="fu">future_map</span>(taus, <span class="sc">~</span> quantreg<span class="sc">::</span><span class="fu">rq</span>(reg_formula, <span class="at">tau =</span> .x, <span class="at">data =</span> df_bank_B, <span class="at">method =</span> <span class="st">'pfn'</span> ), <span class="at">.progress =</span> T)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>models_C <span class="ot">&lt;-</span> <span class="fu">future_map</span>(taus, <span class="sc">~</span> quantreg<span class="sc">::</span><span class="fu">rq</span>(reg_formula, <span class="at">tau =</span> .x, <span class="at">data =</span> df_bank_C, <span class="at">method =</span> <span class="st">'pfn'</span> ), <span class="at">.progress =</span> T)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>future<span class="sc">:::</span><span class="fu">ClusterRegistry</span>(<span class="st">"stop"</span>) <span class="co"># close workers. </span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">gc</span>() <span class="co"># just to make sure. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For each bank there are 99 quantile regressions</p>
+<p><img src="mortgage_data/models_list.PNG" class="img-fluid"></p>
+</section>
+<section id="predictions" class="level1">
+<h1>Predictions</h1>
+<p>In the original article, we computed the simulation for each loan in the data. And reported statistics about how the population could have save money if they would know the to bid between banks.<br>
+here, for the sake of presentation I’ll compute it for a single loan. Load a small data with handsome of loans to compute their predictions</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">'mortgage_data/data_3_for_predictions.RData'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For each bank we run the predictions separately.<br>
+The next function computes the predictions for each list of models.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create predictions</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>f_predict <span class="ot">&lt;-</span> <span class="cf">function</span>(.models , .data, .bank){</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">map_dfc</span>(.models, <span class="sc">~</span> <span class="fu">predict</span>(.x, .data)) <span class="sc">%&gt;%</span> <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"id"</span>) </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> <span class="fu">gather</span>( <span class="at">key =</span> <span class="st">"quantile"</span>, <span class="at">value =</span> <span class="st">"prediction"</span>, <span class="dv">2</span><span class="sc">:</span><span class="fu">ncol</span>(x))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  x2 <span class="ot">&lt;-</span> x2 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">quantile =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(quantile, <span class="st">"</span><span class="sc">\\</span><span class="st">d+"</span>)),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                      <span class="at">bank =</span> .bank)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  x2</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>p_bank_A <span class="ot">&lt;-</span> <span class="fu">f_predict</span>(models_A, df_for_predictions, <span class="st">"A"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>p_bank_B <span class="ot">&lt;-</span> <span class="fu">f_predict</span>(models_B, df_for_predictions, <span class="st">"B"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>p_bank_C <span class="ot">&lt;-</span> <span class="fu">f_predict</span>(models_C, df_for_predictions, <span class="st">"C"</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># bind  all predictions</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>p_banks <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(p_bank_A, p_bank_B, p_bank_C) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as.numeric</span>(id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p_banks <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(id))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 x 4
+     id quantile prediction bank 
+  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;
+1     1        1       2.45 A    
+2     1        2       2.55 A    
+3     1        3       2.57 A    
+4     1        4       2.60 A    
+5     1        5       2.59 A    
+6     1        6       2.58 A    </code></pre>
+</div>
+</div>
+</section>
+<section id="simulation" class="level1">
+<h1>Simulation</h1>
+<p>Next function computes the simulation for a single loan.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>f_simulation_dist_different_draw <span class="ot">&lt;-</span> <span class="cf">function</span>(id_number, n, p_data) {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># draw random quantiles for each bank</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  r1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">simulation_n =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n, <span class="dv">3</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> id_number,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">bank =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"A"</span>, n), <span class="fu">rep</span>(<span class="st">"B"</span>, n), <span class="fu">rep</span>(<span class="st">"C"</span>, n)), </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">quantile =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">3</span> <span class="sc">*</span> n, <span class="fl">0.01</span>, <span class="fl">0.99</span>) <span class="sc">*</span> <span class="dv">100</span>), <span class="at">stringsAsFactors =</span> F )</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a> <span class="co"># join predictions from the p_bank Rata </span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  r2 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(r1, p_data ,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"bank"</span>, <span class="st">"quantile"</span>) )</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># For each draw triplet we choose all combinations of 2 banks,</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># As if the customer got bids from two banks.</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># There are 3 options: A-B, A-C, B-C</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  r3a <span class="ot">&lt;-</span> r2 <span class="sc">%&gt;%</span>  <span class="fu">select</span>(<span class="sc">-</span> quantile)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># option 1</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  r3b1 <span class="ot">&lt;-</span> r2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(bank <span class="sc">!=</span> <span class="st">"C"</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(simulation_n) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">min</span>(prediction)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>(simulation_n, id, prediction) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bank =</span> <span class="st">"A_B"</span>)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># option 2</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  r3b2 <span class="ot">&lt;-</span> r2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(bank <span class="sc">!=</span> <span class="st">"B"</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(simulation_n) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">min</span>(prediction)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>(simulation_n, id, prediction) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bank =</span> <span class="st">"A_C"</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># option 3</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>  r3b3 <span class="ot">&lt;-</span> r2 <span class="sc">%&gt;%</span> <span class="fu">filter</span>(bank <span class="sc">!=</span> <span class="st">"C"</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(simulation_n) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">min</span>(prediction)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>(simulation_n, id, prediction) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bank =</span> <span class="st">"A_B"</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 1 option for bidding in all tree banks</span></span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>  r3c <span class="ot">&lt;-</span> r2 <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(simulation_n) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">min</span>(prediction)) <span class="sc">%&gt;%</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>(simulation_n, id, prediction) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">bank =</span> <span class="st">"all_3_banks"</span>)</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bind everything together</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  r4 <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(r3a,r3b1, r3b2, r3b3, r3c)</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># a Dummy variable to choose from which bank the customer is</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>  r4 <span class="ot">&lt;-</span> r4 <span class="sc">%&gt;%</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">A =</span> <span class="fu">if_else</span>( bank <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A_B"</span>, <span class="st">"A_C"</span>, <span class="st">"all_3_banks"</span>), <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>           <span class="at">B =</span> <span class="fu">if_else</span>( bank <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"B"</span>, <span class="st">"A_B"</span>, <span class="st">"B_C"</span>, <span class="st">"all_3_banks"</span>), <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>           <span class="at">C =</span> <span class="fu">if_else</span>( bank <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"C"</span>, <span class="st">"A_C"</span>, <span class="st">"B_C"</span>, <span class="st">"all_3_banks"</span>), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>  r4</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Check the function<br>
+Here we call customer number 4, we draw 100 triples of quantils, and we feed in the predictions dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>customer_4 <span class="ot">&lt;-</span> <span class="fu">f_simulation_dist_different_draw</span>(<span class="dv">4</span>, <span class="dv">1000</span>, p_banks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(customer_4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  simulation_n id bank prediction A B C
+1            1  4    A       2.85 1 0 0
+2            2  4    A       3.38 1 0 0
+3            3  4    A       2.89 1 0 0
+4            4  4    A       2.64 1 0 0
+5            5  4    A       2.93 1 0 0
+6            6  4    A       2.81 1 0 0</code></pre>
+</div>
+</div>
+<p>Function to plot results from the perspective of a customer of some bank</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>f_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(data, bank_choice){</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(.data[[bank_choice]] <span class="sc">==</span> <span class="dv">1</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> prediction, <span class="at">color =</span> bank, <span class="at">fill =</span> bank)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>) </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">f_plot</span>(customer_4, <span class="st">"A"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mortgage_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>look at it from every angle</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>customer_7 <span class="ot">&lt;-</span> <span class="fu">f_simulation_dist_different_draw</span>(<span class="dv">7</span>, <span class="dv">1000</span>, p_banks) </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">f_plot</span>(customer_7, <span class="st">"A"</span>) <span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">3.6</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>p5 <span class="ot">&lt;-</span> <span class="fu">f_plot</span>(customer_7, <span class="st">"B"</span>)<span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">3.6</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>p6 <span class="ot">&lt;-</span> <span class="fu">f_plot</span>(customer_7, <span class="st">"C"</span>)<span class="sc">+</span> <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="fl">2.2</span>, <span class="fl">3.6</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'patchwork' was built under R version 4.0.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p4 <span class="sc">/</span> p5 <span class="sc">/</span> p6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="mortgage_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">Copyright 2022, Eviatar Guttman</div>
+  </div>
+</footer>
+
+
+
+</body></html>
