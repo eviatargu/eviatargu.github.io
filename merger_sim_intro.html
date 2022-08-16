@@ -112,8 +112,9 @@ ul.task-list{list-style: none;}
   <ul class="collapse">
   <li><a href="#bertrand-model-with-differentiated-products" id="toc-bertrand-model-with-differentiated-products" class="nav-link" data-scroll-target="#bertrand-model-with-differentiated-products">Bertrand model with differentiated products</a></li>
   <li><a href="#the-multinomial-logit-model" id="toc-the-multinomial-logit-model" class="nav-link" data-scroll-target="#the-multinomial-logit-model">The multinomial logit model</a></li>
+  <li><a href="#nested-logit" id="toc-nested-logit" class="nav-link" data-scroll-target="#nested-logit">Nested Logit</a></li>
+  <li><a href="#useful-references" id="toc-useful-references" class="nav-link" data-scroll-target="#useful-references">Useful references</a></li>
   </ul></li>
-  <li><a href="#usefull-references" id="toc-usefull-references" class="nav-link" data-scroll-target="#usefull-references">Usefull references</a></li>
   </ul>
 </nav>
     </div>
@@ -136,7 +137,7 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>The next pages presents two examples of horizontal merger simulation implemented in R code.</p>
+<p>The next pages presents examples of horizontal merger simulation implemented in R code.</p>
 <p>Merger simulation is a quantitative tool to create prediction about the probable outcome effect of a merger on competition. The process can be divided to three parts:<br>
 (1) Selection of a structural model of supply and demand.<br>
 (2) Calibration model’s parameters.<br>
@@ -144,55 +145,76 @@ ul.task-list{list-style: none;}
 <p>Next, I’ll briefly describe the selected three parts chosen for the forthcoming examples. Afterwards, a brief view of the equation system that emerge from the model, and finally, a few references for those who’d like to deepen their knowledge in the subject.</p>
 <p>(1) The structural model</p>
 <p>On the supply side we’ll use a Bertrand model with differentiated products. On the demand side versions of logit demand systems will be used. This specification is common for competition agencies to work with.<br>
-(2) model calibration</p>
+</p>
+<p>(2) model calibration</p>
 <p>Two techniques are common, the harder one is implementing demand estimation of the demand function parameters. It is a demanding process both in terms of the required data and in terms of the required scope of work. Another approach is to calibrate the model using carefully selected parameters - this is what we’ll do here.<br>
-(3) Equilibrium computation</p>
+</p>
+<p>(3) Equilibrium computation</p>
 <p>In the case of a non-linear demand system such as we have here, no analytic solution exists. Some kind of numeric method is required to solve the equation system - here I’ll use fixed point iteration.</p>
-<section id="equation-system-of-the-structural-model" class="level2">
-<h2 class="anchored" data-anchor-id="equation-system-of-the-structural-model">Equation system of the structural model</h2>
-<p>Next, we explain a little bit about the chosen structural model. first, the equations of the Bertrand model followed by the simple logit demand system.</p>
-<section id="bertrand-model-with-differentiated-products" class="level3">
-<h3 class="anchored" data-anchor-id="bertrand-model-with-differentiated-products">Bertrand model with differentiated products</h3>
-<p>In this model, Firm <span class="math inline">\(k \in K\)</span> chooses the prices <span class="math inline">\(\{p_j\}_{j=1}^{n_k}\)</span> of its products so as to maximize profits. Mathematically, firm <span class="math inline">\(k\)</span> solves:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign*%7D%20%5Cmax_%7B%5C%7Bp_j%5C%7D_%7Bj%253D1%7D%5E%7Bn_k%7D%7D%20%2526%5Csum_%7Bj%253D1%7D%5E%7Bn_k%7D(%5Comega_%7Bjk%7D)(p_j%20-%20c_j)q_j%252C%20%5Cend%7Balign*%7D" class="img-fluid"></p>
-</figure>
-</div>
-<p>where <span class="math inline">\(\omega_{ik}\)</span> is the share of product <span class="math inline">\(j\)</span>’s profits earned by firm <span class="math inline">\(k\)</span>, so that <span class="math inline">\(\sum\limits_{k\in K} \omega_{jk}\le 1\)</span>. <span class="math inline">\(q_j\)</span>, the quantity sold of product <span class="math inline">\(j\)</span>, is assumed to be a twice differentiable function of <em>all</em> product prices.</p>
-<p>Differentiating profits with respect to each <span class="math inline">\(p_j\)</span> yields the following first order conditions (FOCs): <embed src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign*%7D%20%5Cpartial%20p_j%2526%5Cequiv%20%5Comega_%7Bjk%7Dq_j%20+%5Csum_%7Bj%253D1%7D%5E%7Bn%7D%5Comega_%7Bjk%7D(%20p_j%20-%20c_j)%5Cfrac%7B%5Cpartial%20q_j%7D%7B%5Cpartial%20p_j%7D%253D0%2526%20%5Cmbox%7B%20for%20all%20%2524j%5Cin%20n_k%2524%7D%20%5Cend%7Balign*%7D" class="img-fluid"></p>
+<p>Next, we explain a little bit about the chosen structural model. here is a link to skip the mathmatical model and go to the first example of <a href="./Multinomial_Logit.html">multinomial logit</a></p>
+<section id="equation-system-of-the-structural-model" class="level1">
+<h1>Equation system of the structural model</h1>
+<p>First, the equations of the Bertrand model followed by the a short explanation of two logit models.</p>
+<section id="bertrand-model-with-differentiated-products" class="level2">
+<h2 class="anchored" data-anchor-id="bertrand-model-with-differentiated-products">Bertrand model with differentiated products</h2>
+<p>A very good explanation of how the betrand model works is written by <a href="mailto:jonas@bjornerstedt.org">Jonas Björnerstedt</a> (Swedish competition authority) and <a href="mailto:frank.verboven@kuleuven.be">Frank Verboven</a> (University of Leuven) in their <a href="https://sites.google.com/site/frankverbo/data-and-software/merger-simulation-with-nested-logit-demand">merger simulation implementation in stata</a>. The next few images are taken from section 2 of their paper:</p>
+<p><img src="simulation_data/verboven1.PNG" class="img-fluid"></p>
+<p><img src="simulation_data/verboven2.PNG" class="img-fluid"></p>
+<p><img src="simulation_data/verboven3.PNG" class="img-fluid"></p>
 </section>
-<section id="the-multinomial-logit-model" class="level3">
-<h3 class="anchored" data-anchor-id="the-multinomial-logit-model">The multinomial logit model</h3>
-<p>Logit demand is based on a discrete choice model that assumes that each consumer is willing to purchase at most a single unit of one product from the <span class="math inline">\(n\)</span> products available in the market. The assumptions underlying Logit demand imply that the probability that a consumer purchases product <span class="math inline">\(j \in n\)</span> is given by</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign*%7D%20s_j%253D%2526%20%5Cfrac%7B%5Cexp(V_j)%7D%7B%5Csum%5Climits_%7Bk%20%5Cin%20n%7D%5Cexp(V_k)%7D%252C%2526%20%5Cend%7Balign*%7D" class="img-fluid"></p>
-</figure>
-</div>
-<p>where <span class="math inline">\(s_j\)</span> is product <span class="math inline">\(j\)</span>’s <em>quantity</em> share and <span class="math inline">\(V_j\)</span> is the (average) indirect utility that a consumer receives from purchasing product <span class="math inline">\(j\)</span>. We assume that <span class="math inline">\(V_j\)</span> takes on the following form:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign*%7D%20V_j%253D%2526%5Cdelta_j%20+%20%5Calpha%20p_j%252C%2526%5Calpha%3C0.%20%5Cend%7Balign*%7D" class="img-fluid"></p>
-</figure>
-</div>
+<section id="the-multinomial-logit-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-multinomial-logit-model">The multinomial logit model</h2>
+<p>A good explanation of the logit model is in the <a href="https://cran.r-project.org/web/packages/antitrust/vignettes/Reference.html">vignette</a> of the <a href="https://cran.r-project.org/web/packages/antitrust/index.html">r package antitrust</a> by authored by Charles Taragin and Michael Sandfort. The explanation below is a selection from the package’s vignette:</p>
+<p>Logit demand is based on a discrete choice model that assumes that each consumer is willing to purchase at most a single unit of one product from the <span class="math inline">\(n\)</span> products available in the market. The assumptions underlying Logit demand imply that the probability that a consumer purchases product <span class="math inline">\(i \in n\)</span> is given by</p>
+<span class="math display">\[\begin{align*}
+  s_i=&amp; \frac{\exp(V_i)}{\sum\limits_{k \in n}\exp(V_k)},&amp;
+\end{align*}\]</span>
+<p>where <span class="math inline">\(s_i\)</span> is product <span class="math inline">\(i\)</span>’s <em>quantity</em> share and <span class="math inline">\(V_i\)</span> is the (average) indirect utility that a consumer receives from purchasing product <span class="math inline">\(i\)</span>. We assume that <span class="math inline">\(V_i\)</span> takes on the following form</p>
+<span class="math display">\[\begin{align*}
+  V_i=&amp;\delta_i + \alpha p_i,&amp;\alpha&lt;0.
+\end{align*}\]</span>
 <p>The Logit demand system yields the following own- and cross-price elasticities:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><embed src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Balign*%7D%20%5Cepsilon_%7Bii%7D%253D%2526%5Calpha%20(1-s_i)p_i%20%5C%5C%20%5Cepsilon_%7Bij%7D%253D%2526-%5Calpha%20s_jp_j%20%5Cend%7Balign*%7D" class="img-fluid"></p>
-</figure>
-</div>
+<span class="math display">\[\begin{align*}
+  \epsilon_{ii}=&amp;\alpha (1-s_i)p_i \\
+  \epsilon_{ij}=&amp;-\alpha s_jp_j
+\end{align*}\]</span>
 </section>
+<section id="nested-logit" class="level2">
+<h2 class="anchored" data-anchor-id="nested-logit">Nested Logit</h2>
+<p>By construction, Logit demand assumes that diversion occurs according to quantity share. While convenient, one potential drawback of this assumption is that diversion according to share may not accurately represent consumer substitution patterns. One way to relax this assumption is to group the <span class="math inline">\(n\)</span> products into <span class="math inline">\(n &gt; H \ge 2\)</span> <em>nests</em>, with products in the same nest assumed to be closer substitutes than products in different nests.</p>
+<p>The assumptions underlying nested Logit demand imply that the probability that a consumer purchases product <span class="math inline">\(i\)</span> in nest <span class="math inline">\(h\in H\)</span> is given by</p>
+<span class="math display">\[\begin{align*}
+  s_i=&amp; s_{i|h}s_h,&amp;\\
+  s_{i|h}=&amp;\frac{\exp(\frac{V_i}{\sigma_h})}{\sum\limits_{k \in
+      h}\exp(\frac{V_k}{\sigma_h})},&amp; 1 \ge \sigma_h \ge 0\\
+  s_{h}=&amp; \frac{\exp(\sigma_hI_h)}{\sum\limits_{l\in H}\exp(\sigma_lI_l)},&amp; I_h=\log\sum\limits_{k \in h}\exp\left(\frac{V_k}{\sigma_h}\right).
+\end{align*}\]</span>
+<p>We assume that <span class="math inline">\(V_i\)</span> takes on the following form</p>
+<span class="math display">\[\begin{align*}
+  V_i=&amp;\delta_i + \alpha p_i,&amp; \alpha\le 0.
+\end{align*}\]</span>
+<p>The Nested Logit demand system yields the following own- and cross-price elasticities:</p>
+<span class="math display">\[\begin{align*}
+  \epsilon_{ii}=&amp;
+    [1-s_i + (\frac{1}{\sigma_h}-1)(1-s_{i|h})]\alpha p_i, \\
+  \epsilon_{ij}=&amp;\begin{cases}
+    -[s_j + (\frac{1}{\sigma_h}-1)s_{j|h}]\alpha p_j, &amp;
+    \text{if $i,j$ are both in nest $h$}.\\
+    -\alpha s_jp_j, &amp; \text{if $i$ is not in nest $h$ but $j$ is}.
+  \end{cases}
+\end{align*}\]</span>
+<p>Notice how these cross-price elasticities are identical to the non-nested Logit elasticities when products <span class="math inline">\(i,j\)</span> are in different nests, but are larger when products <span class="math inline">\(i,j\)</span> are in the same nests. This observation is consistent with the claim that products within a nest are closer substitutes than products outside of a nest.</p>
 </section>
-<section id="usefull-references" class="level2">
-<h2 class="anchored" data-anchor-id="usefull-references">Usefull references</h2>
+<section id="useful-references" class="level2">
+<h2 class="anchored" data-anchor-id="useful-references">Useful references</h2>
 <p>For more information about the mathematical implementation and the theory, one can read<br>
 <a href="https://www.stata-journal.com/article.html?article=st0349">Björnerstedt and Verboven</a></p>
-<p>To understand more about the Logit demand system (multinumial and nested logit) and the implementation is this repository its best to read <a href="https://www.jstor.org/stable/2555829#metadata_info_tab_contents">berry 1994</a>.</p>
+<p>To understand more about the Logit demand system (multinumial and nested logit) and the implementation in these pages its best to read <a href="https://www.jstor.org/stable/2555829#metadata_info_tab_contents">berry 1994</a>.</p>
 <p>To get a wider perspective about possible implementations for antitrust practitioners, see the work of <a href="https://cran.r-project.org/web/packages/antitrust/index.html">Taragin and Sandfort</a></p>
-<p>and finally, a very good source to understand the procedure of demant estimaion, a good place to start is <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1430-9134.2000.00513.x">Aviv nevo’s practitioner’s Guide</a></p>
+<p>and finally, a very good source to understand the procedure of demand estimaion, a good place to start is <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1430-9134.2000.00513.x">Aviv nevo’s practitioner’s Guide</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
