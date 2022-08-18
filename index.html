@@ -73,21 +73,21 @@ ul.task-list{list-style: none;}
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./mortgage.html">Mortgage research</a>
+    <a class="nav-link" href="./1_mortgage.html">Mortgage Simulation</a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-merger-simulation" role="button" data-bs-toggle="dropdown" aria-expanded="false">Merger Simulation</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-merger-simulation">    
         <li>
-    <a class="dropdown-item" href="./merger_sim_intro.html">
+    <a class="dropdown-item" href="./2_merger_sim_intro.html">
  <span class="dropdown-text">Introduction</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Multinomial_Logit.html">
- <span class="dropdown-text">multinomial logit</span></a>
+    <a class="dropdown-item" href="./3_multinomial_logit.html">
+ <span class="dropdown-text">Multinomial logit</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./nested.html">
+    <a class="dropdown-item" href="./4_nested.html">
  <span class="dropdown-text">Nested Logit</span></a>
   </li>  
     </ul>
@@ -124,8 +124,26 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>I’m an Economist and data scientists at the Research department of the <a href="https://www.gov.il/en/departments/competition/govil-landing-page">Israeli Competition Authority</a>. I like working with data. This site is intended to present some of the beautiful code stuff I’ve been doing.</p>
-<p>you can contact me at eviatargu@competition.gov.il</p>
+<p>I’m an Economist and data scientists at the Research department of the <a href="https://www.gov.il/en/departments/competition/govil-landing-page">Israeli Competition Authority</a>. I like working with data. This site is intended to present some fun code stuff I have done.</p>
+<div class="callout-warning callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+diclaimer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The views expressed herein are entirely mine and should not be purported to reflect those of the Israel competition Authority.</em></p>
+</div>
+</div>
+<ol type="1">
+<li><p>In a research project called <a href="https://www.gov.il/he/departments/publications/reports/mortgagemarket-final">Information problems in the mortgage market in Israel: price dispersion and search</a> we predicted the entire counter-factual price distribution of mortgage loans had the customers would have asked for more bank bids in a friction-less environment. The <a href="./1_mortgage.html">code</a> example shown here replicates the core idea of performing 297 quantile regressions and using its predictions to build a new hypothetical price distribution through simulation.</p></li>
+<li><p>Merger simulation is a framework that uses economic models grounded in the theory of industrial organization to predict the effect of mergers on prices in markets. Merger simulation is at the frontier of the empirical economics used by competition authorities. The examples shown here are predominant techniques in merger simulation implementation. We starts with a little bit of <a href="./2_merger_sim_intro.html">background</a>, continue with a <a href="./3_multinomial_logit.html">simplified example</a> for clarity and finishes with a more advanced <a href="./4_nested.html">example</a> accompanied with production-level code.</p></li>
+</ol>
+<p>My intent is to expand with more examples in the future as time will allow.</p>
+<p>You can contact me at <u>eviatargu@competition.gov.il</u></p>
 
 
 
