@@ -137,21 +137,25 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>The next pages presents examples of horizontal merger simulation implemented in R code.</p>
-<p>Merger simulation is a quantitative tool to create prediction about the probable outcome effect of a merger on competition. The process can be divided to three parts:<br>
+<p>The next pages presents code examples of merger simulation implementation.</p>
+<p>Merger simulation is a framework that uses economic models grounded in the theory of industrial organization to predict the effect of mergers on prices in markets. Merger simulation is at the frontier of the empirical economics used by competition authorities.</p>
+<p>Generally, every merger simulation uses oligopoly model calibrated to observed prices and quantities in the relevant market. It is a quantitative tool to create predictions about the probable outcome effect of a merger on competition. specifically, It aims at giving numerical predictions of price and quantity change due to a merger.</p>
+<p>The process can be divided to three stages:<br>
 (1) Selection of a structural model of supply and demand.<br>
-(2) Calibration model’s parameters.<br>
+(2) Calibration model’s parameters to the available data.<br>
 (3) Computation of new equilibrium that will prevail post merger.</p>
-<p>Next, I’ll briefly describe the selected three parts chosen for the forthcoming examples. Afterwards, a brief view of the equation system that emerge from the model, and finally, a few references for those who’d like to deepen their knowledge in the subject.</p>
+<p>Let’s briefly expand on these three steps referring to the examples that will be presented below. After that, those who want to delve into the math involved in implementing the examples can continue on this page, and those who want to access the code directly will continue to the following pages.</p>
 <p>(1) The structural model</p>
-<p>On the supply side we’ll use a Bertrand model with differentiated products. On the demand side versions of logit demand systems will be used. This specification is common for competition agencies to work with.<br>
+<p>Selecting the structural model is the theoretical part of the process where the researcher needs to fit the right model to the market facts. The structuralist model consists of an assumed supply curve taken from an oligopoly model and a demand system that should resemble consumer preferences. In practice, many time the demand system is chosen to fit data and computation limitations.</p>
+<p>Here, on the supply side we’ll use a <a href="https://www.concurrences.com/en/dictionary/bertrand-nash-equilibrium#:~:text=The%20Bertrand%20differentiated%20products%20model%20is%20applicable%20to%20markets%20where,particularly%20relevant%20for%20retail%20markets.">Bertrand model with differentiated products</a>. On the demand side versions of logit demand systems will be used. Scpecifically, the <a href="https://eml.berkeley.edu/books/choice2nd/Ch03_p34-75.pdf">multinomial logit</a> and <a href="https://eml.berkeley.edu/books/choice2nd/Ch04_p76-96.pdf">one level nested logit</a> will be used in the forthcoming examples. This specification is common for competition agencies to work with.<br>
 </p>
 <p>(2) model calibration</p>
-<p>Two techniques are common, the harder one is implementing demand estimation of the demand function parameters. It is a demanding process both in terms of the required data and in terms of the required scope of work. Another approach is to calibrate the model using carefully selected parameters - this is what we’ll do here.<br>
-</p>
+<p>As stated above, the structural model needs to be calibrated to observed data about prices and quantities. (There are cases where its possible to calibrate supply side and solve numerically for the demand system parameters but that’s beyond the scope of this document) Two techniques are common. (1) The hard way is to implement a process of <a href="https://cowles.yale.edu/sites/default/files/d2301.pdf">demand estimation</a> to estimate the parameters of the demand function. It is a demanding process both in terms of the required data efforts. Another approach is to calibrate the model using carefully selected parameters based on qualitative knowledge of the market or other limited quantitative data available to the researcher. Here, for demonstration we’ll choose arbitrary demand parameters.</p>
 <p>(3) Equilibrium computation</p>
-<p>In the case of a non-linear demand system such as we have here, no analytic solution exists. Some kind of numeric method is required to solve the equation system - here I’ll use fixed point iteration.</p>
-<p>Next, we explain a little bit about the chosen structural model. here is a link to skip the mathmatical model and go to the first example of <a href="./3_multinomial_logit.html">multinomial logit</a></p>
+<p>In almost all cases (except for specific cases with linear demand system), no analytical solution exists for the equation system that characterized by the structural model. Some kind of numeric solution method is required. Here I’ll use fixed point iteration algorithm.</p>
+<p>Whats next?</p>
+<p>The examples shown here are predominant techniques in merger simulation implementation. The next page presents simplified example of <a href="./3_multinomial_logit.html">multinomial logit</a>. The aim is to make the code as easy as possible to digest. The second example presents a more advanced example of <a href="./4_nested.html">one level nested logit</a> accompanied with production-level code.</p>
+<p>For those who with to continue with the theoretical part, I’ve added below mathematical explanations of the Bertrand model with differentiated products , the matrix algebra needed to solve the system and explanations of the relevant logit demand systems.</p>
 <section id="equation-system-of-the-structural-model" class="level1">
 <h1>Equation system of the structural model</h1>
 <p>First, the equations of the Bertrand model followed by the a short explanation of two logit models.</p>
